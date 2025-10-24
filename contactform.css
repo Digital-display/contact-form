@@ -348,7 +348,7 @@ pre.w-code-block code {
   white-space: nowrap;
   cursor: pointer;
   box-shadow: 0 0 0 1px #0000001a, 0 1px 3px #0000001a;
-  visibility: visible !important;
+  visibility: hidden !important;
   opacity: 1 !important;
   z-index: 2147483647 !important;
   color: #aaadb0 !important;
@@ -362,7 +362,7 @@ pre.w-code-block code {
   font-size: 12px !important;
   line-height: 14px !important;
   text-decoration: none !important;
-  display: inline-block !important;
+  display: none !important;
   position: fixed !important;
   inset: auto 12px 12px auto !important;
   transform: none !important;
@@ -16040,4 +16040,5 @@ html.w-mod-js [data-ix="new-interaction"] {
   #w-node-c28cc763-f708-1e61-f196-6bd9fce9805f-bcb24919 {
     grid-area: 6 / 1 / 7 / 2;
   }
+
 }
