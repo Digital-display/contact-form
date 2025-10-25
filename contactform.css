@@ -8637,7 +8637,11 @@ figcaption {
 .paragraph-small-3.text-color-gray-300 {
   color: #c3c9d5;
 }
-
+.contact-form-2 .form-field-label::after {
+  content: " *";       
+  color: red;          
+  font-weight: bold;   
+}
 .location-title-wrapper {
   grid-column-gap: 16px;
   grid-row-gap: 16px;
@@ -16042,3 +16046,4 @@ html.w-mod-js [data-ix="new-interaction"] {
   }
 
 }
+
