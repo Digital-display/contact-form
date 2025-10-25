@@ -441,7 +441,73 @@
             }, 800); // delay to ensure POST is sent
         });
     </script> 
+<script>
+// --- Utility to open fullscreen content ---
+async function openFullscreenAndShow(divClass) {
+  const modal = document.querySelector(`.${divClass}`);
+  if (!modal) return;
+
+  try {
+    // Try to go fullscreen (works on Android + desktop)
+    if (document.documentElement.requestFullscreen) {
+      await document.documentElement.requestFullscreen();
+    }
+  } catch (err) {
+    console.warn('Fullscreen not supported:', err);
+  }
+
+  // Show the modal
+  modal.style.display = 'block';
+  modal.style.position = 'fixed';
+  modal.style.top = 0;
+  modal.style.left = 0;
+  modal.style.width = '100vw';
+  modal.style.height = '100vh';
+  modal.style.zIndex = 99999;
+  modal.style.background = 'white';
+  modal.style.overflowY = 'auto';
+}
+
+// --- Utility to close and exit fullscreen ---
+async function closeFullscreenAndHide(divClass) {
+  const modal = document.querySelector(`.${divClass}`);
+  if (!modal) return;
+
+  modal.style.display = 'none';
+  if (document.fullscreenElement) {
+    await document.exitFullscreen();
+  }
+}
+
+// --- Event Listeners for Terms & Privacy links ---
+document.addEventListener('DOMContentLoaded', () => {
+  // Open Terms
+  document.querySelector('.text-link-secondary-copy754')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    openFullscreenAndShow('terms');
+  });
+
+  // Open Privacy Policy
+  document.querySelector('.text-link-secondary-copy821')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    openFullscreenAndShow('privacy');
+  });
+
+  // Close buttons inside Terms modal
+  document.querySelector('.terms .close-icon-2-copy76')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    closeFullscreenAndHide('terms');
+  });
+
+  // Close buttons inside Privacy modal
+  document.querySelector('.privacy .close-icon-2-copy652')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    closeFullscreenAndHide('privacy');
+  });
+});
+</script>
 
 </body>
 
 </html>
+
